@@ -1,0 +1,77 @@
+@startuml
+' Definição de estilo
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor White
+    ArrowColor Black
+    BorderColor Black
+}
+
+' Classes abstratas
+abstract class Auditable {
+    +createdDate: LocalDateTime
+    +lastModifiedDate: LocalDateTime
+}
+
+abstract class Pessoa {
+    +nome: String
+    +email: String
+}
+Pessoa <|-- Auditable
+
+' Classes de entidade
+class Usuario {
+    +dataDeCadastro: LocalDate
+    +matricula: String
+    +endereco: String
+}
+Usuario <|-- Pessoa
+
+class Funcionario {
+    +cargo: FuncionarioCargo
+    +dataDeInicio: LocalDate
+}
+Funcionario <|-- Pessoa
+
+class Livro {
+    +titulo: String
+    +autor: String
+    +ano: int
+    +status: LivroStatus
+}
+Livro <|-- Auditable
+
+class Emprestimo {
+    +dataEmprestimo: LocalDate
+    +dataDevolucao: LocalDate
+}
+Emprestimo <|-- Auditable
+Emprestimo "1" *-- "1" Livro : contains
+Emprestimo "1" *-- "1" Usuario : contains
+Emprestimo "1" *-- "1" Funcionario : contains
+
+' Enums
+enum FuncionarioCargo {
+    ATENDENTE
+    GERENTE
+}
+
+enum LivroStatus {
+    ALUGADO
+    DISPONIVEL
+}
+
+enum UsuarioStatus {
+    ATIVO
+    INATIVO
+}
+
+enum EmprestimoStatus {
+    ATIVO
+    INATIVO
+}
+
+' Relações
+Usuario "1" *-- "*" Emprestimo : has
+Funcionario "1" *-- "*" Emprestimo : has
+@enduml

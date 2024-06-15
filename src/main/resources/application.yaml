@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: biblioteca-java
+  profiles:
+    active: ${biblioteca-java.spring.profiles.active:prd}
+  datasource:
+    driver-class-name: ${biblioteca-java.datasource.driver-class-name}
+    password: ${biblioteca-java.datasource.password}
+    username: ${biblioteca-java.datasource.username}
+    url: ${biblioteca-java.datasource.url}
+    hikari:
+      maximum-pool-size: ${biblioteca-java.datasource.hikari.maximum-pool-size}
+  web:
+    resources:
+      add-mappings: false
+  jpa:
+    open-in-view: ${biblioteca-java.jpa.open-in-view}
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: ${biblioteca-java.jpa.properties.hibernate.enable_lazy_load_no_trans}
+    hibernate:
+      ddl-auto: ${biblioteca-java.jpa.hibernate.ddl-auto}
+    show-sql: ${biblioteca-java.jpa.show-sql}
+  h2:
+    console:
+      enabled: ${biblioteca-java.h2.console.enabled}
+      path: ${biblioteca-java.h2.console.path}
+      settings:
+        web-allow-others: ${biblioteca-java.h2.console.settings.web-allow-others}
