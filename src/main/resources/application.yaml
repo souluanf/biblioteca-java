@@ -1,3 +1,11 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      force: true
+  shutdown: graceful
+
 spring:
   application:
     name: biblioteca-java
@@ -27,3 +35,11 @@ spring:
       path: ${biblioteca-java.h2.console.path}
       settings:
         web-allow-others: ${biblioteca-java.h2.console.settings.web-allow-others}
+
+springdoc:
+  swagger-ui:
+    enabled: ${biblioteca-java.springdoc.swagger-ui.enabled}
+    operations-sorter: method
+    tags-sorter: alpha
+    display-request-duration: true
+openapi-servers-urls: ${biblioteca-java.openapi-servers-urls}

@@ -20,3 +20,8 @@ biblioteca-java:
     show-sql: true
     hibernate:
       ddl-auto: update
+
+  springdoc:
+    swagger-ui:
+      enabled: true
+  openapi-servers-urls: http://localhost:${server.port}${server.servlet.context-path}

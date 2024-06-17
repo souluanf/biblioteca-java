@@ -1,13 +1,17 @@
 package dev.luanfernandes.biblioteca.service;
 
-import dev.luanfernandes.biblioteca.domain.entity.Livro;
-
+import dev.luanfernandes.biblioteca.domain.request.LivroRequest;
+import dev.luanfernandes.biblioteca.domain.response.LivroResponse;
 import java.util.List;
 
 public interface LivroService {
-    Livro salvarLivro(Livro livro);
-    Livro obterLivroPorId(Long id);
-    List<Livro> obterTodosLivros();
+    LivroResponse salvarLivro(LivroRequest livro);
+
+    LivroResponse obterLivroPorId(Long id);
+
+    List<LivroResponse> obterTodosLivros();
+
     void excluirLivro(Long id);
-    List<Livro> buscarLivroAutor(String autor);
+
+    List<LivroResponse> buscarLivroAutor(String autor);
 }

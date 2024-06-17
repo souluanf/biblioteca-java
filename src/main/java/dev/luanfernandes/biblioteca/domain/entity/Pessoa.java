@@ -13,7 +13,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Pessoa extends Auditavel{
+public abstract class Pessoa extends Auditavel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

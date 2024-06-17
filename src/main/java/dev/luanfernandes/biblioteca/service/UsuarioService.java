@@ -1,12 +1,15 @@
 package dev.luanfernandes.biblioteca.service;
 
-import dev.luanfernandes.biblioteca.domain.entity.Usuario;
-
+import dev.luanfernandes.biblioteca.domain.request.UsuarioRequest;
+import dev.luanfernandes.biblioteca.domain.response.UsuarioResponse;
 import java.util.List;
 
 public interface UsuarioService {
-    Usuario salvarUsuario(Usuario usuario);
-    Usuario obterUsuarioPorId(Long id);
-    List<Usuario> obterTodosUsuarios();
+    UsuarioResponse salvarUsuario(UsuarioRequest usuario);
+
+    UsuarioResponse obterUsuarioPorId(Long id);
+
+    List<UsuarioResponse> obterTodosUsuarios();
+
     void excluirUsuario(Long id);
 }

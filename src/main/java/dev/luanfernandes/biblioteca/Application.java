@@ -2,12 +2,13 @@ package dev.luanfernandes.biblioteca;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
+@EnableJpaAuditing
 @SpringBootApplication
-public class BibliotecaJavaApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(BibliotecaJavaApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
-
 }
